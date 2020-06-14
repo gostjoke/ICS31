@@ -79,8 +79,44 @@ Elephant = animal('Jumbo', 'Elephant', 50, 1000, 'peanuts')
 platypus = animal('Perry', 'platypus', 7, 1.7, 'shrimp')
 print(Elephant[-2] < platypus[-2])
 
+#g
+booklist = [favorite, another, still_another]
+#g1
+print(favorite[-1]<another[-1])
+print(booklist[1][-1]>booklist[1][-1]) #?
 
+#g2
+print(favorite[-2]>still_another[-2])
+print(booklist[1][-2]<booklist[-1][-2])
 
+#h
+from collections import namedtuple     # If this line is in your file already, you don't need it again
+Restaurant = namedtuple('Restaurant', 'name cuisine phone dish price')
+# Restaurant attributes: name, kind of food served, phone number, best dish, price of that dish
+RC = [
+    Restaurant("Thai Dishes", "Thai", "334-4433", "Mee Krob", 12.50),
+    Restaurant("Nobu", "Japanese", "335-4433", "Natto Temaki", 5.50),
+    Restaurant("Nonna", "Italian", "355-4433", "Stracotto", 25.50),
+    Restaurant("Jitlada", "Thai", "324-4433", "Paht Woon Sen", 15.50),
+    Restaurant("Nola", "New Orleans", "336-4433", "Jambalaya", 5.50),
+    Restaurant("Noma", "Modern Danish", "337-4433", "Birch Sap", 35.50),
+    Restaurant("Addis Ababa", "Ethiopian", "337-4453", "Yesiga Tibs", 10.50) ]
 
+#h.1
+print(RC[2][0])
+#h.2
+print(RC[0][1] == RC[3][1])
+#h.3
+print(RC[6][4])
+#h.4
+RC.sort()
+print(RC) #cannot print sort.(functionn)
+#print(sorted(RC))
+#h.5
+print(sorted(RC)[-1][-2])
+#print(sorted.RC[-1].dish)
+#h.6
+lst=[sorted(RC)[0], sorted(RC)[1], sorted(RC)[-1], sorted(RC)[-2]]
+print(lst)
 
 
