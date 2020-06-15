@@ -1,23 +1,60 @@
-#c.6
-import tkinter              # load the library; do this just once per program
+# d
+from collections import namedtuple     # If this line is in your file already, you don't need it again
+Restaurant = namedtuple('Restaurant', 'name cuisine phone dish price')
+# Restaurant attributes: name, kind of food served, phone number, best dish, price of that dish
+RC = [
+    Restaurant("Thai Dishes", "Thai", "334-4433", "Mee Krob", 12.50),
+    Restaurant("Nobu", "Japanese", "335-4433", "Natto Temaki", 5.50),
+    Restaurant("Nonna", "Italian", "355-4433", "Stracotto", 25.50),
+    Restaurant("Jitlada", "Thai", "324-4433", "Paht Woon Sen", 15.50),
+    Restaurant("Nola", "New Orleans", "336-4433", "Jambalaya", 5.50),
+    Restaurant("Noma", "Modern Danish", "337-4433", "Birch Sap", 35.50),
+    Restaurant("Addis Ababa", "Ethiopian", "337-4453", "Yesiga Tibs", 10.50) ]
 
-my_window = tkinker.Tk()    # Create the graphics window
+print('---------- Part (d.1) ----------')
 
-my_canvas = tkinter.Canvas(my_window, width=500, height=500) # Create a 500x500 canvas to draw on
-my_canvas.pack()            # Put the canvas into the window
+#d.1
+def restaurant_price(Restaurant:str) -> float:
+    "takes a Restaurant and returns the value of the price."
+    return Restaurant.price
+    #should put .price not [ ]
 
-#x-values extend positively to the right and y-values extend positively down
+assert restaurant_price(RC[0]) == 12.50
+assert restaurant_price(RC[1]) == 5.50
 
-#(6)
-def create_square(x1, y1, l:int) -> int: 
-    "take x-coordinate and y-coordinate of the upper-left corner and the length of a side."
-    x2 = x1+ l
-    y2 = y1+ l
-    return my_canvas.create_rectangle(x1,y1,x2,y2)
+print(restaurant_price(RC[2]))
 
-create_square(100,100,200)
+print()
+
+print('---------- Part (d.2) ----------')
+#(d.2)
+
+RC.sort(key=restaurant_price, reverse = False)
+# reverse = False, from least expensive to most expensive
+# reverse = True, from most expensive to least expensive
+# no reverse, same as reverse = False
+print(RC)
+
+print()
+
+print('---------- Part (d.3) ----------')
+
+#(d.3)
+def costliest(RC:list) -> str:
+    "take a list of Restaurants, returns"
+    RC.sort(key=restaurant_price, reverse = True)
+    return RC[0].name
+assert costliest(RC) == "Noma"
+
+print (costliest(RC))
+
+print()
+print('---------- Part (d.4) ----------')
+#(d.4) #not sure
 
 
 
-tkinker.mainloop()           #combine all the elements and diplay the window
+
+
+
 
