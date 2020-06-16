@@ -52,7 +52,16 @@ print()
 print('---------- Part (d.4) ----------')
 #(d.4) #not sure
 
+def costliest2(RC:list) -> str:
+    #no side effect
+    sorted(RC, key = restaurant_price,reverse = False)
+    return RC[-1].name
 
+
+print(costliest2(RC))
+print(RC)
+
+print()
 
 
 
